@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+  --primary-color: #8a2be2; /* Darker neon purple */
+  --secondary-color: #ff007f;
+  --dark-bg: #0a0a0a; /* Deep black background */
+  --card-bg: rgba(20, 20, 20, 0.8); /* Dark glass effect */
+  --text-color: #ffffff;
+  --glow: 0px 0px 15px rgba(138, 43, 226, 0.8); /* Purple glow */
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color);
+  margin: 0;
+  overflow: hidden;
+  background-color: var(--dark-bg);
+}
+
+/* 🔥 Dark Animated Background */
+.animated-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(10, 10, 10, 0.9) 30%, rgba(0, 0, 0, 1) 100%);
+  z-index: -1;
+}
+
+/* 🌟 Floating Particles */
+.particles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.particles span {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: rgba(132, 50, 209, 0.5);
+  border-radius: 50%;
+  animation: floatParticles 8s infinite ease-in-out;
+}
+
+@keyframes floatParticles {
+  0% { transform: translateY(0px) scale(1); opacity: 0.5; }
+  50% { transform: translateY(-200px) scale(1.2); opacity: 1; }
+  100% { transform: translateY(-400px) scale(1); opacity: 0; }
+}
+
+/* 🚀 Login Box Styling */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+}
+
+.login-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: var(--glow);
+  text-align: center;
+  width: 320px;
+  z-index: 1;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.login-title {
+  font-size: 32px;
+  font-weight: bold;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  background-clip: text;
+  -webkit-background-clip: text; /* For Webkit browsers */
+  -webkit-text-fill-color: transparent;
+
+}
+
+.login-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+}
+
+.login-input:focus {
+  outline: none;
+  box-shadow: var(--glow);
+}
+
+.login-button {
+  width: 50%;
+  padding: 12px;
+  margin-bottom: 18px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.login-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 25px rgba(138, 43, 226, 1);
+}
+
+.login-link,
+.login-signup-link {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.login-signup-text {
+  font-size: 17px;
+  margin-top: 10px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* 🎨 Link Styling */
+.login-link,
+.login-signup-link {
+  color: var(--secondary-color);
+  margin-bottom: 20px;
+  text-decoration: none;
+  font-size: 14px;
+  position: relative;
+  transition: color 0.3s ease-in-out;
+}
+
+/* ✨ Hover Effect */
+.login-link:hover,
+.login-signup-link:hover {
+  color: #ff4db8; /* Brighter pink for hover */
+  text-shadow: 0px 0px 8px rgba(255, 77, 184, 0.8);
+}
+
+/* 🎭 Underline Animation */
+.login-link::after,
+.login-signup-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background: var(--secondary-color);
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+/* 🌟 Expand Underline on Hover */
+.login-link:hover::after,
+.login-signup-link:hover::after {
+  width: 100%;
+  left: 0;
+}
