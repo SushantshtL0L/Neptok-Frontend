@@ -9,6 +9,11 @@
   --glow: 0px 0px 15px rgba(138, 43, 226, 0.8); /* Purple glow */
 }
 
+/* Remove focus outline globally */
+*:focus {
+  outline: none;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   color: var(--text-color);
@@ -66,7 +71,7 @@ body {
   border-radius: 16px;
   box-shadow: var(--glow);
   text-align: center;
-  width: 350px;
+  width: 400px; /* Slightly wider for additional fields */
   z-index: 1;
   animation: fadeIn 1s ease-in-out;
 }
@@ -75,15 +80,16 @@ body {
   font-size: 32px;
   font-weight: bold;
   background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-  -webkit-background-clip: text;
   background-clip: text;
+  -webkit-background-clip: text; /* For Webkit browsers */
   -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
 }
 
 .signup-input {
   width: 100%;
   padding: 12px;
-  margin-bottom: 14px;
+  margin-bottom: 20px;
   border: none;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.05);
@@ -98,8 +104,9 @@ body {
 }
 
 .signup-button {
-  width: 100%;
+  width: 50%;
   padding: 12px;
+  margin-bottom: 18px;
   border: none;
   border-radius: 8px;
   background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
@@ -115,19 +122,55 @@ body {
   box-shadow: 0px 0px 25px rgba(138, 43, 226, 1);
 }
 
-.signup-login-text {
-  font-size: 14px;
-  margin-top: 10px;
-}
-
+.signup-link,
 .signup-login-link {
   color: var(--secondary-color);
   text-decoration: none;
   font-size: 14px;
+}
+
+.signup-login-text {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🎨 Link Styling */
+.signup-link,
+.signup-login-link {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-size: 14px;
+  position: relative;
   transition: color 0.3s ease-in-out;
 }
 
+/* ✨ Hover Effect */
+.signup-link:hover,
 .signup-login-link:hover {
-  color: #ff4db8;
+  color: #ff4db8; /* Brighter pink for hover */
   text-shadow: 0px 0px 8px rgba(255, 77, 184, 0.8);
+}
+
+/* 🎭 Underline Animation */
+.signup-link::after,
+.signup-login-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background: var(--secondary-color);
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.signup-link:hover::after,
+.signup-login-link:hover::after {
+  width: 100%;
+  left: 0;
 }

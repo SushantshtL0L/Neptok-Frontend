@@ -9,6 +9,11 @@
   --glow: 0px 0px 15px rgba(138, 43, 226, 0.8); /* Purple glow */
 }
 
+/* Remove focus outline globally */
+*:focus {
+  outline: none;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   color: var(--text-color);
@@ -28,6 +33,29 @@ body {
   z-index: -1;
 }
 
+.neptok-logo {
+  position: absolute;
+  padding:2px;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-image {
+  width: px;
+  
+  height: 80px;
+}
+
+.logo-text {
+  font-size: 40px;
+  font-weight: 600;
+  padding: 0px;
+  color: var(--primary-color);
+}
+
 /* 🌟 Floating Particles */
 .particles {
   position: fixed;
@@ -40,7 +68,7 @@ body {
   position: absolute;
   width: 8px;
   height: 8px;
-  background: rgba(132, 50, 209, 0.5);
+  background: rgba(138, 43, 226, 0.5);
   border-radius: 50%;
   animation: floatParticles 8s infinite ease-in-out;
 }
@@ -56,7 +84,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100dvh;
+  height: 100vh;
 }
 
 .login-card {
@@ -78,7 +106,6 @@ body {
   background-clip: text;
   -webkit-background-clip: text; /* For Webkit browsers */
   -webkit-text-fill-color: transparent;
-
 }
 
 .login-input {
@@ -121,11 +148,11 @@ body {
 .login-signup-link {
   color: var(--secondary-color);
   text-decoration: none;
-  font-size: 17px;
+  font-size: 14px;
 }
 
 .login-signup-text {
-  font-size: 17px;
+  font-size: 16px;
   margin-top: 10px;
 }
 
@@ -133,11 +160,11 @@ body {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
 /* 🎨 Link Styling */
 .login-link,
 .login-signup-link {
   color: var(--secondary-color);
-  margin-bottom: 20px;
   text-decoration: none;
   font-size: 14px;
   position: relative;
@@ -161,7 +188,7 @@ body {
   width: 0%;
   height: 2px;
   background: var(--secondary-color);
-  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+  transition: width 0.4s ease-in-out, left 0.3s ease-in-out;
 }
 
 /* 🌟 Expand Underline on Hover */
@@ -169,4 +196,6 @@ body {
 .login-signup-link:hover::after {
   width: 100%;
   left: 0;
+  background-color: #0a0a0a;
 }
+

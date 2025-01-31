@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom"; // Import Link for routing
 import "./Signup.css"; // Import the CSS file
 
 const Signup = () => {
@@ -22,7 +23,6 @@ const Signup = () => {
     alert(`Signed up as ${username}`);
   };
 
-  // 🌟 Floating Particles Animation
   useEffect(() => {
     const container = document.querySelector(".particles");
     if (!container) return;
@@ -40,7 +40,7 @@ const Signup = () => {
 
   return (
     <div className="signup-container">
-      {/* 🔥 Dark Animated Background */}
+      {/* Dark Animated Background */}
       <div className="animated-bg"></div>
       <div className="particles"></div>
 
@@ -59,7 +59,6 @@ const Signup = () => {
             className="signup-input"
             required
           />
-
           <input
             type="email"
             placeholder="Email"
@@ -68,7 +67,6 @@ const Signup = () => {
             className="signup-input"
             required
           />
-
           <input
             type="password"
             placeholder="Password"
@@ -77,7 +75,6 @@ const Signup = () => {
             className="signup-input"
             required
           />
-
           <input
             type="password"
             placeholder="Confirm Password"
@@ -86,17 +83,17 @@ const Signup = () => {
             className="signup-input"
             required
           />
-
           <button type="submit" className="signup-button">
             Sign Up
           </button>
         </form>
 
+        {/* Add the 'Link' component for routing to the login page */}
         <p className="signup-login-text">
           Already have an account?{" "}
-          <a href="#" className="signup-login-link">
+          <Link to="/login" className="signup-login-link">
             Log In
-          </a>
+          </Link>
         </p>
       </div>
     </div>
@@ -104,3 +101,4 @@ const Signup = () => {
 };
 
 export default Signup;
+
