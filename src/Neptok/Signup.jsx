@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom"; // Import Link for routing
 import "./Signup.css"; // Import the CSS file
+import logo from "../Assest/Logo.png";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -39,8 +40,15 @@ const Signup = () => {
   }, []);
 
   return (
+    <>
+
+      <div className="neptok-logo">
+            <img src={logo} alt="Neptok Logo" className="logo-image" />
+            <span className="logo-text">Neptok</span>
+          </div>
+    
     <div className="signup-container">
-      {/* Dark Animated Background */}
+      
       <div className="animated-bg"></div>
       <div className="particles"></div>
 
@@ -97,6 +105,7 @@ const Signup = () => {
         </p>
       </div>
     </div>
+    </>
   );
 };
 
