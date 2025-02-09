@@ -19,7 +19,7 @@ const Explore = () => {
       },
       {
         id: 2,
-        url: 'https://www.youtube.com/watch?v=ysz5S6PUM-U',
+        url: 'https://www.youtube.com/shorts/3jBAfYStEOw?feature=share',
         likes: 200,
         comments: 50,
         shares: 20,

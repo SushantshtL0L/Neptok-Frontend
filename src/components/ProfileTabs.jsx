@@ -11,12 +11,7 @@ const ProfileTabs = () => {
       >
         Videos
       </button>
-      <button
-        className={activeTab === 'liked' ? 'active' : ''}
-        onClick={() => setActiveTab('liked')}
-      >
-        Liked
-      </button>
+      
     </div>
   );
 };

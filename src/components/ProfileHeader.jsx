@@ -1,19 +1,20 @@
 import React from 'react';
 import "../Styles/Profile.css";
+import profile from "../Assest/Profile.png";
 
 const ProfileHeader = () => {
   // Example stats (can be fetched from an API or state)
   const profileStats = {
-    followers: 1000,
-    following: 500,
-    likes: 12000,
+    followers: 10,
+    following: 5,
+    likes: 120,
   };
 
   return (
     <div className="profile-header">
-      <img src="https://via.placeholder.com/150" alt="Profile" className="profile-pic" />
-      <h1 className="username">@username</h1>
-      <p className="bio">This is a sample bio for the TikTok profile.</p>
+      <img src={profile} alt="Profile.png" className="profile-pic" />
+      <h1 className="username">Hari Bahadur</h1>
+      <p className="bio">Welcome to my profile my name is hari bahadur</p>
 
       {/* Stats Section */}
       <div className="stats">

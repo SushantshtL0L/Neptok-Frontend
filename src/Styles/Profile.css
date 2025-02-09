@@ -2,15 +2,16 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
+    background-color: #000000;
   }
   
   .profile-container {
     height: 100%;
-    max-width: 600px;
-    margin: 0 auto;
+    width: 1000px;
+    margin-left: 700px;
+    /* margin: 0 auto; */
     padding: 20px;
-    background-color: #fff;
+    background-color: #000000;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
@@ -19,8 +20,8 @@ body {
   }
   
   .profile-pic {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     object-fit: cover;
   }
@@ -31,7 +32,7 @@ body {
   }
   
   .bio {
-    color: #666;
+    color: silver;
     font-size: 14px;
   }
   
@@ -49,12 +50,12 @@ body {
     display: block;
     font-size: 18px;
     font-weight: bold;
-    color: #333;
+    color: #e3e1e1;
   }
   
   .stat-label {
     font-size: 14px;
-    color: #666;
+    color: #d5d1d1;
   }
   
   .edit-profile-btn {

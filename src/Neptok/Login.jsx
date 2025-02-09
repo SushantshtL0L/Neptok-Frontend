@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "./Login.css"; // Import the updated CSS file
+import "./Login.css"; 
 import { Link } from "react-router-dom";
-import logo from "../Assest/Logo.png"; // Import your logo image
+import logo from "../Assest/Logo.png"; 
 
 const Login = () => {
   const [username, setUsername] = useState("");

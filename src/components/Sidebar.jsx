@@ -1,5 +1,5 @@
 import React from "react";
-import { FaHome, FaCompass, FaUser, FaUpload } from "react-icons/fa";
+import { FaHome, FaCompass, FaMusic, FaUpload, FaUser } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom"; 
 
@@ -30,8 +30,10 @@ const Sidebar = () => {
               <FaCompass className="nav-icon" /> Explore
             </Link>
           </li>
-          <li>
-            <FaUser className="nav-icon" /> Music
+          <li className={location.pathname === "/music" ? "active" : ""}>
+            <Link to="/music">
+            <FaMusic className="nav-icon" /> Music
+            </Link>
           </li>
           <li>
             <FaUpload className="nav-icon" /> Upload
