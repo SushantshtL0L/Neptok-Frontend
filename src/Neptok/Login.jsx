@@ -24,6 +24,8 @@ const Login = () => {
     setIsPasswordVisible((prev) => !prev);
   };
 
+  
+
   // Generate Floating Particles
   useEffect(() => {
     const container = document.querySelector(".particles");
@@ -49,7 +51,7 @@ const Login = () => {
 
   return (
     <>
-      
+      <button className="logout-button">Logout</button>
       <div className="neptok-logo">
         <img src={logo} alt="Logo.png" className="logo-image" />
         <span className="logo-text">Neptok</span>
@@ -60,6 +62,9 @@ const Login = () => {
         
         <div className="animated-bg"></div>
         <div className="particles"></div>
+
+        <div className="black-overlay"></div>
+
 
         <div className="login-card">
           <h1 className="login-title">Neptok</h1>

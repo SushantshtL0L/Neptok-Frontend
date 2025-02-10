@@ -5,8 +5,9 @@
   --secondary-color: #ff007f;
   --dark-bg: #000000; 
   --card-bg: rgba(20, 20, 20, 0.8); 
-  --text-color: #000000;
+  --text-color: #ffffff; /* Changed to white for better contrast */
   --glow: 0px 0px 15px rgba(138, 43, 226, 0.8); 
+  --transition-speed: 0.3s;
 }
 
 /* Remove focus outline globally */
@@ -16,11 +17,11 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-
   color: var(--text-color);
+  width: 100%;
   margin: 0;
   overflow: hidden;
-  background-color: black;
+  background-color:black;
 }
 
 /* 🔥 Dark Animated Background */
@@ -30,10 +31,9 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: black; /* Change from radial-gradient to solid black */
+  background: var(--dark-bg);
   z-index: -1;
 }
-
 
 .neptok-logo {
   position: absolute;
@@ -42,25 +42,21 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  /* z-index: 10; Ensure it's above other elements */
 }
+
 .login-subtitle {
-  color: white;
+  color: var(--text-color);
   font-size: 16px;
   font-weight: 400;
 }
 
-
 .logo-image {
-  width: px;
-  
   height: 80px;
 }
 
 .logo-text {
   font-size: 40px;
   font-weight: 600;
-  padding: 0px;
   color: var(--primary-color);
 }
 
@@ -76,7 +72,7 @@ body {
   position: absolute;
   width: 8px;
   height: 8px;
-  background: rgba(138, 43, 226, 0.5);
+  background: rgba(132, 34, 224, 0.5);
   border-radius: 50%;
   animation: floatParticles 8s infinite ease-in-out;
 }
@@ -89,16 +85,18 @@ body {
 
 /* 🚀 Login Box Styling */
 .login-container {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
+  overflow: hidden;
+  background-color: black;
 }
-
 
 .login-card {
   background: var(--card-bg);
@@ -117,8 +115,7 @@ body {
   font-weight: bold;
   background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
   background-clip: text;
-  color: aliceblue;
-  -webkit-background-clip: text; /* For Webkit browsers */
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -129,13 +126,12 @@ body {
   border: none;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.05);
-  color: white;
+  color: var(--text-color);
   font-size: 16px;
-  transition: all 0.3s ease-in-out;
+  transition: all var(--transition-speed) ease-in-out;
 }
 
 .login-input:focus {
-  outline: none;
   box-shadow: var(--glow);
 }
 
@@ -146,11 +142,11 @@ body {
   border: none;
   border-radius: 8px;
   background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-  color: white;
+  color: var(--text-color);
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: all var(--transition-speed) ease-in-out;
 }
 
 .login-button:hover {
@@ -161,8 +157,10 @@ body {
 .login-link,
 .login-signup-link {
   color: var(--secondary-color);
-  text-decoration: aliceblue;
+  text-decoration: none;
   font-size: 14px;
+  position: relative;
+  transition: color var(--transition-speed) ease-in-out;
 }
 
 .login-signup-text {
@@ -177,19 +175,9 @@ body {
 }
 
 /* 🎨 Link Styling */
-.login-link,
-.login-signup-link {
-  color: var(--secondary-color);
-  text-decoration: none;
-  font-size: 14px;
-  position: relative;
-  transition: color 0.3s ease-in-out;
-}
-
-/* ✨ Hover Effect */
 .login-link:hover,
 .login-signup-link:hover {
-  color: #ff4db8; /* Brighter pink for hover */
+  color: #ff4db8;
   text-shadow: 0px 0px 8px rgba(255, 77, 184, 0.8);
 }
 
@@ -203,15 +191,13 @@ body {
   width: 0%;
   height: 2px;
   background: var(--secondary-color);
-  transition: width 0.4s ease-in-out, left 0.3s ease-in-out;
+  transition: width var(--transition-speed) ease-in-out, left var(--transition-speed) ease-in-out;
 }
 
-/* 🌟 Expand Underline on Hover */
 .login-link:hover::after,
 .login-signup-link:hover::after {
   width: 100%;
   left: 0;
-  /* background-color: #0a0a0a; */
 }
 
 .password-container {
@@ -236,6 +222,38 @@ body {
 .eye-button svg {
   width: 20px;
   height: 20px;
-  color: #666; 
+  color: #666;
+  transition: color var(--transition-speed) ease-in-out;
 }
+
+.eye-button:hover svg {
+  color: var(--secondary-color);
+}
+.logout-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent; 
+  color: #ff007f; 
+  border: 2px solid #ff007f;  
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.logout-button:hover {
+  background: rgba(255, 0, 127, 0.2);  
+  color: white;  
+}
+
+/* .black-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%; 
+  height: 50%;
+  background-color: black;
+  z-index: 1; 
+} */
 

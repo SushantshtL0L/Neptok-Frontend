@@ -7,7 +7,9 @@ import Home from "./components/Home.jsx";
 import Explore from "./components/Explore.jsx";
 import ProfilePage from "./components/ProfilePage.jsx";
 import Sidebar from "./components/Sidebar.jsx";
-import MusicPage from "./components/MusicPage.jsx"; // Import the MusicPage component
+import MusicPage from "./components/MusicPage.jsx"; 
+import Navbar from "./components/Navbar.jsx"; 
+ 
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
           path="/home"
           element={
             <>
+              <Navbar/>
               <Sidebar />
               <Home />
             </>
@@ -32,6 +35,7 @@ function App() {
           path="/explore"
           element={
             <>
+              <Navbar/>
               <Sidebar />
               <Explore />
             </>
@@ -42,6 +46,7 @@ function App() {
           path="/profile"
           element={
             <>
+              <Navbar/>
               <Sidebar />
               <ProfilePage />
             </>
@@ -53,6 +58,7 @@ function App() {
           path="/music"
           element={
             <>
+              <Navbar/>
               <Sidebar />
               <MusicPage />
             </>
