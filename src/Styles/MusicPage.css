@@ -5,8 +5,7 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  
-  background-color: #000000; /* Dark blue background */
+  background-color: #000000; /* Dark background */
   color: #64ffda; /* Teal text color */
   font-family: 'Arial, sans-serif';
   text-align: center;
@@ -17,6 +16,8 @@
 .title {
   font-size: 3rem;
   margin-bottom: 10px;
+  color: #64ffda; /* Teal text color */
+  text-shadow: 0 0 10px #64ffda, 0 0 20px #64ffda; /* Glow effect */
 }
 
 /* Subtitle of the page */
@@ -31,6 +32,16 @@
   margin-bottom: 20px;
   width: 80%;
   max-width: 600px;
+  background-color: #1a1a1a; /* Slightly lighter dark background */
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.music-player-container:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
 }
 
 /* Title of each music track */
@@ -43,4 +54,34 @@
 /* Audio player styling */
 .audio-player {
   width: 100%;
+  background-color: #333; /* Darker background for the audio player */
+  border-radius: 5px;
+  outline: none;
+}
+
+/* Customize the audio player controls */
+.audio-player::-webkit-media-controls-panel {
+  background-color: #333; /* Dark background for controls */
+  border-radius: 5px;
+}
+
+.audio-player::-webkit-media-controls-play-button,
+.audio-player::-webkit-media-controls-mute-button {
+  background-color: #64ffda; /* Teal color for buttons */
+  border-radius: 50%;
+}
+
+.audio-player::-webkit-media-controls-current-time-display,
+.audio-player::-webkit-media-controls-time-remaining-display {
+  color: #ccd6f6; /* Light gray text for time display */
+}
+
+.audio-player::-webkit-media-controls-timeline {
+  background-color: #64ffda; /* Teal color for the timeline */
+  border-radius: 5px;
+}
+
+.audio-player::-webkit-media-controls-volume-slider {
+  background-color: #64ffda; /* Teal color for the volume slider */
+  border-radius: 5px;
 }

@@ -1,11 +1,11 @@
 import React from "react";
 import { FaHome, FaCompass, FaMusic, FaUpload, FaUser } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
-import { Link, useLocation } from "react-router-dom"; 
+import { Link, useLocation } from "react-router-dom";
+import "../Styles/Sidebar.css";
 
 const Sidebar = () => {
-  const location = useLocation(); 
-
+  const location = useLocation();
 
   const hiddenRoutes = ["/login", "/signup"];
   if (hiddenRoutes.includes(location.pathname)) {
@@ -14,10 +14,13 @@ const Sidebar = () => {
 
   return (
     <div className="sidebar">
+      {/* Search Box */}
       <div className="search-box">
         <FiSearch className="search-icon" />
         <input type="text" placeholder="Search" className="search-input" />
       </div>
+
+      {/* Navigation Links */}
       <nav>
         <ul className="nav-list">
           <li className={location.pathname === "/home" ? "active" : ""}>
@@ -25,19 +28,19 @@ const Sidebar = () => {
               <FaHome className="nav-icon" /> Home
             </Link>
           </li>
-          <li className={location.pathname === "/explore" ? "active" : ""}>
-            <Link to="/explore">
-              <FaCompass className="nav-icon" /> Explore
-            </Link>
-          </li>
+
           <li className={location.pathname === "/music" ? "active" : ""}>
             <Link to="/music">
-            <FaMusic className="nav-icon" /> Music
+              <FaMusic className="nav-icon" /> Music
             </Link>
           </li>
-          <li>
-            <FaUpload className="nav-icon" /> Upload
+
+          <li className={location.pathname === "/upload" ? "active" : ""}>
+            <Link to="/upload">
+              <FaUpload className="nav-icon" /> Upload
+            </Link>
           </li>
+
           <li className={location.pathname === "/profile" ? "active" : ""}>
             <Link to="/profile">
               <FaUser className="nav-icon" /> Profile

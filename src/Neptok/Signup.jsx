@@ -5,7 +5,7 @@ import logo from "../Assest/Logo.png";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
+  
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
@@ -67,14 +67,7 @@ const Signup = () => {
             className="signup-input"
             required
           />
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="signup-input"
-            required
-          />
+          
           <input
             type="password"
             placeholder="Password"
@@ -96,7 +89,7 @@ const Signup = () => {
           </button>
         </form>
 
-        {/* Add the 'Link' component for routing to the login page */}
+        {/* Linking */}
         <p className="signup-login-text">
           Already have an account?{" "}
           <Link to="/login" className="signup-login-link">

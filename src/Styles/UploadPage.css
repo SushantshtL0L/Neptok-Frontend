@@ -1,0 +1,130 @@
+/* UploadPage.css */
+.upload-page {
+    margin-left: 400px;
+    min-height: 20vh;
+    background: linear-gradient(to bottom, #141414, #000000);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 20px;
+    text-align: center;
+    gap: 40px;
+  }
+  
+  .upload-button {
+    cursor: pointer;
+    background-color: #007bff;
+    padding: 15px 25px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 16px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .upload-button:hover {
+    background-color: #870de4;
+    transform: translateY(-3px);
+  }
+  
+  .upload-button:active {
+    background-color: #7f07db;
+    transform: translateY(0);
+  }
+  
+  .upload-button .nav-icon {
+    font-size: 20px;
+  }
+  
+  .video-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .video-wrapper {
+    position: relative;
+    max-width: 100%;
+    width: 320px;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .video-wrapper:hover {
+    transform: scale(1.05);
+  }
+  
+  .video-player {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.6);
+    padding: 12px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .play-icon:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* Additional styling for the search box and other sections if needed */
+  .search-box {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    padding: 5px 20px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .search-icon {
+    color: white;
+    font-size: 18px;
+  }
+  
+  .search-input {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    margin-left: 10px;
+    width: 100%;
+    padding: 5px 10px;
+    border-radius: 20px;
+  }
+  
+  .search-input:focus {
+    outline: none;
+    border-color: #670ae2;
+  }
+  

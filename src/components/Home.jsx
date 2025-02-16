@@ -7,6 +7,7 @@ import testImage3 from "../Assest/test3.png";
 
 export default function TikTokClone() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [openCommentIndex, setOpenCommentIndex] = useState(null); // Track which comment box is open
   const videoRefs = useRef([]);
   const touchStartY = useRef(0);
 
@@ -22,8 +23,8 @@ export default function TikTokClone() {
   };
 
   const handleSwipe = (e) => {
-    const deltaY = e.deltaY || 0; // For mouse scroll
-    const direction = deltaY > 0 ? 1 : -1; // Determine scroll direction
+    const deltaY = e.deltaY || 0;
+    const direction = deltaY > 0 ? 1 : -1;
 
     let newIndex = currentIndex + direction;
     if (newIndex < 0) newIndex = 0;
@@ -40,12 +41,10 @@ export default function TikTokClone() {
     const touchEndY = e.touches[0].clientY;
     const deltaY = touchStartY.current - touchEndY;
 
-    if (Math.abs(deltaY) > 50) { // Minimum swipe distance
+    if (Math.abs(deltaY) > 50) {
       if (deltaY > 0) {
-        // Swipe up
         setCurrentIndex((prev) => Math.min(prev + 1, images.length - 1));
       } else {
-        // Swipe down
         setCurrentIndex((prev) => Math.max(prev - 1, 0));
       }
     }
@@ -59,6 +58,10 @@ export default function TikTokClone() {
     window.addEventListener("wheel", handleSwipe);
     return () => window.removeEventListener("wheel", handleSwipe);
   }, [currentIndex]);
+
+  const toggleCommentBox = (index) => {
+    setOpenCommentIndex(openCommentIndex === index ? null : index);
+  };
 
   return (
     <div className="container">
@@ -78,7 +81,11 @@ export default function TikTokClone() {
               <button aria-label="Like" className="action-button">
                 <FaHeart className="icon" /> 40
               </button>
-              <button aria-label="Comment" className="action-button">
+              <button
+                aria-label="Comment"
+                className="action-button"
+                onClick={() => toggleCommentBox(index)}
+              >
                 <FaComment className="icon" /> 11
               </button>
               <button aria-label="Bookmark" className="action-button">
@@ -88,6 +95,17 @@ export default function TikTokClone() {
                 <FaShare className="icon" /> 5
               </button>
             </div>
+
+            {/* Comment Box */}
+            {openCommentIndex === index && (
+              <div className="comment-box">
+                <div className="comments">
+                  <p>User1: Nice video!</p>
+                  <p>User2: Amazing content!</p>
+                </div>
+                <input type="text" placeholder="Add a comment..." />
+              </div>
+            )}
           </div>
         ))}
       </div>

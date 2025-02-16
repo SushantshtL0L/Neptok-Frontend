@@ -41,7 +41,7 @@ body {
   z-index: -1;
 }
 
-/* 🌟 Floating Particles */
+
 .particles {
   position: fixed;
   width: 100%;
@@ -95,7 +95,7 @@ body {
   font-weight: bold;
   background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
   background-clip: text;
-  -webkit-background-clip: text; /* For Webkit browsers */
+  -webkit-background-clip: text; 
   -webkit-text-fill-color: transparent;
   margin-bottom: 20px;
 }
@@ -157,7 +157,7 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/*  Link Styling */
+
 .signup-link,
 .signup-login-link {
   color: var(--secondary-color);
@@ -167,7 +167,7 @@ body {
   transition: color 0.3s ease-in-out;
 }
 
-/*  Hover Effect */
+
 .signup-link:hover,
 .signup-login-link:hover {
   color: #ff4db8;

@@ -26,7 +26,7 @@ const Login = () => {
 
   
 
-  // Generate Floating Particles
+ 
   useEffect(() => {
     const container = document.querySelector(".particles");
     if (!container) return;

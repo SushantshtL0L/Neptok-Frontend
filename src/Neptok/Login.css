@@ -5,12 +5,12 @@
   --secondary-color: #ff007f;
   --dark-bg: #000000; 
   --card-bg: rgba(20, 20, 20, 0.8); 
-  --text-color: #ffffff; /* Changed to white for better contrast */
+  --text-color: #ffffff; 
   --glow: 0px 0px 15px rgba(138, 43, 226, 0.8); 
   --transition-speed: 0.3s;
 }
 
-/* Remove focus outline globally */
+
 *:focus {
   outline: none;
 }
@@ -24,7 +24,7 @@ body {
   background-color:black;
 }
 
-/* 🔥 Dark Animated Background */
+
 .animated-bg {
   position: fixed;
   top: 0;
@@ -60,7 +60,7 @@ body {
   color: var(--primary-color);
 }
 
-/* 🌟 Floating Particles */
+
 .particles {
   position: fixed;
   width: 100%;
@@ -83,7 +83,7 @@ body {
   100% { transform: translateY(-400px) scale(1); opacity: 0; }
 }
 
-/* 🚀 Login Box Styling */
+
 .login-container {
   position: relative;
   display: flex;
@@ -226,9 +226,9 @@ body {
   transition: color var(--transition-speed) ease-in-out;
 }
 
-.eye-button:hover svg {
+/* .eye-button:hover svg {
   color: var(--secondary-color);
-}
+} */
 .logout-button {
   position: absolute;
   top: 20px;

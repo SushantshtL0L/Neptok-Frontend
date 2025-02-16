@@ -1,4 +1,4 @@
-/* TikTok-like CSS */
+TikTok-like CSS
 :root {
   --primary: #ff0050; /* TikTok's pink accent color */
   --background: #000000; /* Dark background */
@@ -51,7 +51,7 @@ html, body {
 }
 
 .search-input {
-  width: 100%;
+  width: 80%;
   padding: 0.75rem 2.5rem;
   border: none;
   border-radius: 8px;
@@ -243,4 +243,72 @@ html, body {
 
 .video-container {
   animation: fadeIn 0.3s ease forwards;
+}
+/* Comment Box */
+.comment-box {
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 400px;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 12px;
+  padding: 10px;
+  color: var(--text-primary);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Comment List */
+.comment-box .comments {
+  max-height: 150px;
+  overflow-y: auto;
+  padding: 5px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 10px;
+}
+
+/* Individual Comment */
+.comment-box .comments p {
+  font-size: 0.9rem;
+  margin: 5px 0;
+  color: var(--text-secondary);
+}
+
+/* Comment Input */
+.comment-box input {
+  width: 100%;
+  padding: 8px;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: var(--text-primary);
+  outline: none;
+  transition: var(--transition);
+}
+
+.comment-box input:focus {
+  border-color: var(--primary);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Hide scrollbar for a cleaner look */
+.comment-box .comments::-webkit-scrollbar {
+  width: 4px;
+}
+
+.comment-box .comments::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+  .comment-box {
+    width: 90%;
+    bottom: 50px;
+  }
 }

@@ -1,0 +1,126 @@
+/* Sidebar Container */
+.sidebar {
+    width: 250px; /* Default width */
+    height: 100vh; /* Full height */
+    background-color: #2c3e50; /* Dark background */
+    color: #ecf0f1; /* Light text color */
+    position: fixed; /* Fixed position */
+    top: 0;
+    left: 0;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Add shadow */
+    z-index: 1000; /* Ensure it's above other content */
+    overflow-y: auto; /* Add scroll if content overflows */
+    transition: width 0.3s ease, padding 0.3s ease; /* Smooth transition for responsive design */
+}
+
+/* Search Box */
+.search-box {
+    display: flex;
+    
+    align-items: center;
+    background-color: #9017db; /* Slightly darker background */
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 240px;
+    margin-bottom: 600px; /* Space below the search box */
+    border: 2px solid transparent; /* Transparent border by default */
+    transition: border-color 0.3s ease; /* Smooth transition for hover */
+}
+
+/* Search Box Hover Effect */
+.search-box:hover {
+    border-color: #1abc9c; /* Highlight border color on hover */
+}
+
+/* Search Icon */
+.search-icon {
+    color: #ecf0f1; /* Light icon color */
+    margin-right: 10px;
+}
+
+/* Search Input */
+.search-input {
+    background: transparent;
+    border: none;
+    color: #ecf0f1; /* Light text color */
+    outline: none;
+    width: 40%;
+    font-size: 1rem; /* Adjust font size */
+}
+
+/* Search Input Placeholder */
+.search-input::placeholder {
+    color: #bdc3c7; /* Placeholder color */
+}
+
+/* Navigation List */
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Navigation List Items */
+.nav-list li {
+    margin-bottom: 15px; /* Space between list items */
+}
+
+/* Navigation Links */
+.nav-list li a {
+    display: flex;
+    align-items: center;
+    color: #ecf0f1; /* Light text color */
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Navigation Links Hover Effect */
+.nav-list li a:hover {
+    background-color: #34495e; /* Darker background on hover */
+    color: #1abc9c; /* Highlight text color on hover */
+}
+
+/* Active Navigation Item */
+.nav-list li.active a {
+    background-color: #1abc9c; /* Highlight color for active item */
+    color: #fff; /* White text for active item */
+}
+
+/* Navigation Icons */
+.nav-icon {
+    margin-right: 10px;
+    font-size: 1.2rem;
+    transition: margin-right 0.3s ease; /* Smooth transition for responsive design */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60px; /* Collapse sidebar on smaller screens */
+        padding: 10px;
+    }
+
+    .search-box {
+        display: flex; /* Show search box on smaller screens */
+        width: 100%; /* Full width */
+        margin-top: 20px; /* Adjust margin */
+        margin-bottom: 20px; /* Adjust margin */
+    }
+
+    .nav-list li a span {
+        display: none; /* Hide text on smaller screens */
+    }
+
+    .nav-list li a {
+        justify-content: center; /* Center icons */
+        padding: 10px 5px; /* Adjust padding */
+    }
+
+    .nav-icon {
+        margin-right: 0; /* Remove margin for icons */
+        font-size: 1.5rem; /* Increase icon size for better visibility */
+    }
+}
