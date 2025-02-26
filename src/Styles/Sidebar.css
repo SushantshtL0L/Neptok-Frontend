@@ -79,13 +79,13 @@
 
 /* Navigation Links Hover Effect */
 .nav-list li a:hover {
-    background-color: #34495e; /* Darker background on hover */
-    color: #1abc9c; /* Highlight text color on hover */
+    background-color: #4e2b4c; /* Darker background on hover */
+    color: #861abc; /* Highlight text color on hover */
 }
 
 /* Active Navigation Item */
 .nav-list li.active a {
-    background-color: #1abc9c; /* Highlight color for active item */
+    background-color: #991abc; /* Highlight color for active item */
     color: #fff; /* White text for active item */
 }
 

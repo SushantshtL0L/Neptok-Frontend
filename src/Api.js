@@ -1,51 +1,25 @@
 import axios from 'axios';
 
-// Create an instance of axios with a base URL for your API
 const api = axios.create({
-  baseURL: 'http://localhost:3000/api', // Base URL for your API
+  baseURL: 'http://localhost:5000', 
   headers: {
-    'Content-Type': 'application/json', // Optional: set headers if needed
+    'Content-Type': 'application/json',
   },
 });
 
-// Example GET request function
-export const getData = async () => {
+api.interceptors.request.use((config) => {
   try {
-    const response = await api.get('/data'); // Replace '/data' with your actual API endpoint
-    return response.data;
+    const token = localStorage.getItem('token');
+    const excludedEndpoints = ['/users/login', '/users/add'];
+    
+    if (token && !excludedEndpoints.some(endpoint => config.url.includes(endpoint))) {
+      config.headers.Authorization = `Bearer ${token.replace('Bearer ', '')}`;
+    }
+    return config;
   } catch (error) {
-    throw error;
+    console.error('Interceptor error:', error);
+    return config;
   }
-};
-
-// Example POST request function
-export const postData = async (data) => {
-  try {
-    const response = await api.post('/data', data); // Replace '/data' with your actual API endpoint
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
-};
-
-// Example PUT request function
-export const updateData = async (id, data) => {
-  try {
-    const response = await api.put(`/data/${id}`, data); // Replace with your actual API endpoint
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
-};
-
-// Example DELETE request function
-export const deleteData = async (id) => {
-  try {
-    const response = await api.delete(`/data/${id}`); // Replace with your actual API endpoint
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
-};
+});
 
 export default api;

@@ -1,27 +1,58 @@
 import React, { useState, useEffect } from "react";
 import "./Login.css"; 
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 import logo from "../Assest/Logo.png"; 
+import api from "../Api";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [name, setname] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    if (error) {
+      const timer = setTimeout(() => setError(''), 2000); // Clears error after 1 second
+      return () => clearTimeout(timer); // Cleanup function
+    }
+  }, [error]);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!username || !password) {
-      setError("Please fill in all fields.");
+  
+    if (!name.trim() || !password.trim()) {
+      setError('name and password cannot be empty.');
       return;
     }
-    setError("");
-    alert(`Logged in as ${username}`);
+  
+    setIsLoading(true);
+    try {
+      const response = await api.post('/users/login', { name, password });
+  
+      console.log('Full API Response:', response.data); // Debugging response
+  
+      if (response.data && response.data.token) {
+        localStorage.setItem('token', response.data.token);
+        console.log('Login successful:', response.data);
+        navigate('/home');
+      } else {
+        console.error('Unexpected API response:', response.data);
+        setError(`Unexpected API response. Check server response: ${JSON.stringify(response.data)}`);
+      }
+    } catch (err) {
+      console.error('Login error:', err.response?.data || err.message);
+      setError(err.response?.data?.message || 'Login failed');
+    } finally {
+      setIsLoading(false);
+    } 
   };
+  
 
-  // Toggle password visibility
+  
   const togglePasswordVisibility = () => {
-    setIsPasswordVisible((prev) => !prev);
+    setIsPasswordVisible((prevState) => !prevState);
   };
 
   
@@ -75,12 +106,12 @@ const Login = () => {
           <form onSubmit={handleSubmit} className="login-form">
             <input
               type="text"
-              placeholder="Username or Email"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              placeholder="name or Email"
+              value={name}onChange={(e) => setname(e.target.value)}
+
               className="login-input"
               required
-              aria-label="Username or Email"
+              aria-label="name or Email"
             />
 
             <div className="password-container">
@@ -133,11 +164,11 @@ const Login = () => {
               </button>
             </div>
 
-            <Link to="/home">
+            
               <button type="submit" className="login-button">
                 Log In
               </button>
-            </Link>
+            
           </form>
 
           <a href="#" className="login-link">

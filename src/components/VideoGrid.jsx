@@ -1,59 +1,79 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "../Styles/VideoGrid.css";
+import { FaTrash } from "react-icons/fa"; // Import delete icon
 
 const VideoGrid = () => {
-  const videos = [
-    {
-      videoUrl: 'https://www.example.com/video1.mp4',
-      thumbnail: 'https://via.placeholder.com/150',
-      views: '1,000',
-      title: 'Funny Dance Moves',
-      duration: '30',
-    },
-    {
-      videoUrl: 'https://www.example.com/video2.mp4',
-      thumbnail: 'https://via.placeholder.com/150',
-      views: '2,500',
-      title: 'Adorable Puppies',
-      duration: '45',
-    },
-    {
-      videoUrl: 'https://www.example.com/video3.mp4',
-      thumbnail: 'https://via.placeholder.com/150',
-      views: '5,000',
-      title: 'Epic Basketball Shot',
-      duration: '60',
-    },
-    {
-      videoUrl: 'https://www.example.com/video4.mp4',
-      thumbnail: 'https://via.placeholder.com/150',
-      views: '3,200',
-      title: 'Wanderlust Travels',
-      duration: '120',
-    },
-  ];
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    const fetchVideos = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/videos/video-list'); // Update with your backend URL
+        setVideos(response.data);
+      } catch (error) {
+        console.error('Error fetching videos:', error);
+      }
+    };
+    fetchVideos();
+  }, []);
+
+  const handleDelete = async (id) => {
+    if (window.confirm('Are you sure you want to delete this video?')) {
+      try {
+        await axios.delete(`http://localhost:5000/api/videos/delete/${id}`);
+        // Remove the deleted video from state
+        setVideos(videos.filter(video => video.id !== id));
+      } catch (error) {
+        console.error('Error deleting video:', error);
+        alert('Failed to delete video. Please try again.');
+      }
+    }
+  };
 
   return (
     <div className="video-grid">
-      {videos.map((video, index) => (
-        <div key={index} className="video-item">
-          <video
-            className="video-player"
-            src={video.videoUrl}
-            poster={video.thumbnail} // Shows thumbnail before video plays
-            controls
-            autoPlay
-            loop
-            muted
-            playsInline
-          />
-          <div className="video-info">
-            <h3>{video.title}</h3>
-            <span className="views">{video.views} views</span>
-            <span className="duration">{video.duration} sec</span>
+      {videos.length > 0 ? (
+        videos.map((video, index) => (
+          <div key={index} className="video-item">
+            <video
+              id={video.id}
+              className="video-player"
+              src={`http://localhost:5000${video.video_url}`}
+              poster="https://via.placeholder.com/150"
+              controls
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+            <div className="video-info">
+              <h3>{video.description}</h3>
+              <span className="views">{video.size} bytes</span>
+              <button
+                className="delete-button"
+                onClick={() => handleDelete(video.id)}
+                style={{
+                  marginTop: "15px",
+                  backgroundColor: "#dc3545",
+                  color: "white",
+                  border: "none",
+                  padding: "10px 20px",
+                  borderRadius: "5px",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "10px",
+                }}
+              >
+                <FaTrash /> Delete
+              </button>
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      ) : (
+        <p>Loading videos...</p>
+      )}
     </div>
   );
 };

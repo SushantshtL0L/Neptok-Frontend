@@ -10,6 +10,19 @@ import Sidebar from "./components/Sidebar.jsx";
 import MusicPage from "./components/MusicPage.jsx"; 
 import Navbar from "./components/Navbar.jsx"; 
 import UploadPage from "./components/UploadPage.jsx"; // Import UploadPage
+import EditProfile from "./components/EditProfile.jsx"; // Import EditProfile
+
+<Route
+  path="/edit-profile"
+  element={
+    <>
+      <Navbar />
+      <Sidebar />
+      <EditProfile />
+    </>
+  }
+/>
+
 
  
 
@@ -81,6 +94,17 @@ function App() {
               <Navbar/>
               <Sidebar />
               <MusicPage />
+            </>
+          }
+        />
+
+        <Route
+         path="/edit-profile"
+          element={
+            <>
+              <Navbar />
+              <Sidebar />
+              <EditProfile />
             </>
           }
         />
